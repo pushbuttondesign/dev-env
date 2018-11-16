@@ -1,0 +1,3 @@
+# ~/.screenrc
+
+defshell -bash      #set default login shell to bash for autocomplete and colours
