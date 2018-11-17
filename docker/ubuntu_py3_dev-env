@@ -29,6 +29,7 @@ RUN git config --global user.email "chewdonkey@gmail.com"
 
 ENV PYTHONPATH="/root/code/python/librarys:${PYTHONPATH}"
 
+RUN curl -sL https://raw.githubusercontent.com/chewdonkey/dev-env/master/configs/.bashrc >> /root/.bashrc
 RUN curl -sL https://raw.githubusercontent.com/chewdonkey/dev-env/master/configs/.vimrc >> /root/.vimrc
 RUN curl -sL https://raw.githubusercontent.com/chewdonkey/dev-env/master/configs/.screenrc >> /root/.screenrc
 WORKDIR /root

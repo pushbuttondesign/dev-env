@@ -1,3 +1,4 @@
+
 #
 # build with (note build context if required):
 # docker build -t ubuntu_c_dev-env:latest -f path/to/Dockerfile .
@@ -31,6 +32,7 @@ RUN git config --global user.email "chewdonkey@gmail.com"
 
 #Avoid using env variables, use -I -L -l and -Wl,-rpath,/path/to/dir instead
 
+RUN curl -sL https://raw.githubusercontent.com/chewdonkey/dev-env/master/configs/.bashrc >> /root/.bashrc
 RUN curl -sL https://raw.githubusercontent.com/chewdonkey/dev-env/master/configs/.vimrc >> /root/.vimrc
 RUN curl -sL https://raw.githubusercontent.com/chewdonkey/dev-env/master/configs/.screenrc >> /root/.screenrc
 WORKDIR /root
