@@ -19,6 +19,7 @@ RUN apt-get update && apt-get install -y \
     gdb \
     libreadline-dev \
     valgrind \
+    curl \
     vim	\
     screen \
     git \
@@ -30,8 +31,8 @@ RUN git config --global user.email "chewdonkey@gmail.com"
 
 #Avoid using env variables, use -I -L -l and -Wl,-rpath,/path/to/dir instead
 
-COPY /configs/vim/.vimrc /root
-COPY /configs/screen/.screenrc /root
+RUN curl -sL https://raw.githubusercontent.com/chewdonkey/dev-env/master/configs/.vimrc >> /root/.vimrc
+RUN curl -sL https://raw.githubusercontent.com/chewdonkey/dev-env/master/configs/.screenrc >> /root/.screenrc
 WORKDIR /root
 
 ENTRYPOINT ["/bin/bash"]

@@ -14,6 +14,7 @@ MAINTAINER steve
 RUN apt-get update && apt-get install -y \
     python3-pip \
     python3-dev \
+    curl \
     vim	\
     screen \
     git \
@@ -23,11 +24,13 @@ RUN apt-get update && apt-get install -y \
 RUN pip3 install --upgrade pip
 RUN pip3 install --no-cache-dir numpy pandas scipy matplotlib luxpy
 
-ENV PYTHONPATH="/root/code/python/librarys:${PYTHONPATH}" \
+RUN git config --global user.name "chewdonkey"
+RUN git config --global user.email "chewdonkey@gmail.com"
 
-#swap to install from git later to avoid dockerfile context dependancy
-COPY /configs/vim/.vimrc /root
-COPY /configs/screen/.screenrc /root
+ENV PYTHONPATH="/root/code/python/librarys:${PYTHONPATH}"
+
+RUN curl -sL https://raw.githubusercontent.com/chewdonkey/dev-env/master/configs/.vimrc >> /root/.vimrc
+RUN curl -sL https://raw.githubusercontent.com/chewdonkey/dev-env/master/configs/.screenrc >> /root/.screenrc
 WORKDIR /root
 
 ENTRYPOINT ["/bin/bash"]

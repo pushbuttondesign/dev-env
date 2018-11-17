@@ -71,6 +71,8 @@ source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
+# If you come from bash you might have to change your $PATH.
+export PATH=$HOME/bin:/usr/local/bin:$PATH
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
