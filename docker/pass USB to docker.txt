@@ -10,14 +10,14 @@ docker-machine start linux
 
 //every reboot, passes docker environment variables to the linux enviroment
 eval $(docker-machine env linux)
-//to undo this command after running docker-machine stop linux use unset ${!DOCKER*} or eval $(docker-machine env -u)
+//to undo this command after running 'docker-machine stop linux' use 'unset ${!DOCKER*}' or 'eval $(docker-machine env -u)'
 
-//one time build of docker file (to be run from context of inside code folder. file must be named “Dockerfile”)
-docker build --tag alpine_c_py3_dev-env:latest -f docker/alpine_c_py3_dev-env/Dockerfile .
+//one time build of docker file (any files required to be accessed by dockerfile must be within sub-foler context)
+docker build --tag alpine_c_py3_dev-env:latest -f ./path/to/Dockerfile .
 
 //go to virtualbox, right click "show" the linux virtual machine and add usb device via settings -> ports -> usb in gui menu, extension pack required to be installed, USB drive cannot be mounted in OSX, use fdisk to identify usb drive
 //see this link for more details: https://docs.cancergenomicscloud.org/docs/mount-a-usb-drive-in-a-docker-container
-docker run -it -v ~/Documents/code:/root/code --cap-add=SYS_PTRACE --security-opt seccomp=unconfined --device=/dev/ttyACM0 --rm alpine_c_py3_dev-env
+docker run -it -v /path/to/volume/for/mounting:/root/mount_location --cap-add=SYS_PTRACE --security-opt seccomp=unconfined --device=/dev/ttyACM0 --rm ubuntu_c_dev-env
 
 //every time you want to start a docker instance without passing a usb instance - none of the one time steps are needed save building the docker file
-docker run -it -v ~/Documents/code:/root/code --cap-add=SYS_PTRACE --security-opt seccomp=unconfined --rm ubuntu_c_dev-env
+docker run -it -v /path/to/volume/for/mounting:/root/mount_location --cap-add=SYS_PTRACE --security-opt seccomp=unconfined --rm ubuntu_c_dev-env
