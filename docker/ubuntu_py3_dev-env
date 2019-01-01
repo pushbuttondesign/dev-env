@@ -24,14 +24,17 @@ RUN apt-get update && apt-get install -y \
 RUN pip3 install --upgrade pip
 RUN pip3 install --no-cache-dir numpy pandas scipy matplotlib luxpy
 
-RUN git config --global user.name "chewdonkey"
-RUN git config --global user.email "chewdonkey@gmail.com"
-
 ENV PYTHONPATH="/root/code/python/librarys:${PYTHONPATH}"
 
 RUN curl -sL https://raw.githubusercontent.com/chewdonkey/dev-env/master/configs/.bashrc >> /root/.bashrc
 RUN curl -sL https://raw.githubusercontent.com/chewdonkey/dev-env/master/configs/.vimrc >> /root/.vimrc
 RUN curl -sL https://raw.githubusercontent.com/chewdonkey/dev-env/master/configs/.screenrc >> /root/.screenrc
+RUN curl -sL https://raw.githubusercontent.com/chewdonkey/dev-env/master/.gitignore_global >> /root/.gitignore_global
+
+RUN git config --global user.name "chewdonkey"
+RUN git config --global user.email "chewdonkey@gmail.com"
+RUN git config --global core.excludesfile /root/.gitignore_global
+
 WORKDIR /root
 
 ENTRYPOINT ["/bin/bash"]
