@@ -22,7 +22,7 @@ RUN apt-get update && apt-get install -y \
     man 
     
 RUN pip3 install --upgrade pip
-RUN pip3 install --no-cache-dir numpy pandas scipy matplotlib luxpy
+RUN pip3 install --no-cache-dir numpy pandas scipy matplotlib luxpy pylint
 
 ENV PYTHONPATH="/root/code/python/librarys:${PYTHONPATH}"
 
