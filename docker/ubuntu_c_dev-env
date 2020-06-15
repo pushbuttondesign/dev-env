@@ -29,13 +29,13 @@ RUN apt-get update && apt-get install -y \
 
 #Avoid using env variables, use -I -L -l and -Wl,-rpath,/path/to/dir instead
 
-RUN curl -sL https://raw.githubusercontent.com/chewdonkey/dev-env/master/configs/.bashrc >> /root/.bashrc
-RUN curl -sL https://raw.githubusercontent.com/chewdonkey/dev-env/master/configs/.vimrc >> /root/.vimrc
-RUN curl -sL https://raw.githubusercontent.com/chewdonkey/dev-env/master/configs/.screenrc >> /root/.screenrc
-RUN curl -sL https://raw.githubusercontent.com/chewdonkey/dev-env/master/.gitignore_global >> /root/.gitignore_global
+RUN curl -sL https://raw.githubusercontent.com/pushbutton/dev-env/master/configs/.bashrc >> /root/.bashrc
+RUN curl -sL https://raw.githubusercontent.com/pushbutton/dev-env/master/configs/.vimrc >> /root/.vimrc
+RUN curl -sL https://raw.githubusercontent.com/pushbutton/dev-env/master/configs/.screenrc >> /root/.screenrc
+RUN curl -sL https://raw.githubusercontent.com/pushbutton/dev-env/master/.gitignore_global >> /root/.gitignore_global
 
-RUN git config --global user.name "chewdonkey"
-RUN git config --global user.email "chewdonkey@gmail.com"
+RUN git config --global user.name "pushbutton"
+RUN git config --global user.email "steve@pushbutton.com"
 RUN git config --global core.excludesfile /root/.gitignore_global
 
 WORKDIR /root
