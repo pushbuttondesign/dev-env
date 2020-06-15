@@ -33,6 +33,9 @@ filetype indent plugin on
  
 " Enable syntax highlighting
 syntax on
+
+" Enable filetype detection
+filetype on
  
  
 "------------------------------------------------------------
