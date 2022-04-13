@@ -12,6 +12,7 @@ FROM ubuntu:rolling
 LABEL version="v1.0.0" description="slim Ubuntu-based C dev environment image"
 MAINTAINER steve
 
+ARG DEBIAN_FRONTEND=noninteractive
 RUN apt-get update && apt-get install -y \
     build-essential \
     gfortran \
