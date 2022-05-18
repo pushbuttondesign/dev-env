@@ -22,8 +22,8 @@ RUN apt-get update && apt-get install -y \
     nano \
     man 
     
-RUN pip3 install --upgrade pip
-RUN pip3 install --no-cache-dir numpy pandas scipy matplotlib luxpy pylint coverage
+RUN python3 -m pip install --upgrade pip
+RUN python3 -m pip install --no-cache-dir setuptools wheel numpy pandas scipy matplotlib luxpy pylint coverage
 
 ENV PYTHONPATH="/root/code/librarys:${PYTHONPATH}"
 
