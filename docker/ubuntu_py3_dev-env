@@ -27,10 +27,10 @@ RUN python3 -m pip install --no-cache-dir setuptools wheel numpy pandas scipy ma
 
 ENV PYTHONPATH="/root/code/librarys:${PYTHONPATH}"
 
-RUN curl -sL https://raw.githubusercontent.com/pushbutton/dev-env/master/configs/.bashrc >> /root/.bashrc
-RUN curl -sL https://raw.githubusercontent.com/pushbutton/dev-env/master/configs/.vimrc >> /root/.vimrc
-RUN curl -sL https://raw.githubusercontent.com/pushbutton/dev-env/master/configs/.screenrc >> /root/.screenrc
-RUN curl -sL https://raw.githubusercontent.com/pushbutton/dev-env/master/.gitignore_global >> /root/.gitignore_global
+RUN curl -sL https://raw.githubusercontent.com/pushbuttondesign/dev-env/master/configs/.bashrc >> /root/.bashrc
+RUN curl -sL https://raw.githubusercontent.com/pushbuttondesign/dev-env/master/configs/.vimrc >> /root/.vimrc
+RUN curl -sL https://raw.githubusercontent.com/pushbuttondesign/dev-env/master/configs/.screenrc >> /root/.screenrc
+RUN curl -sL https://raw.githubusercontent.com/pushbuttondesign/dev-env/master/.gitignore_global >> /root/.gitignore_global
 
 RUN git config --global user.name "pushbutton"
 RUN git config --global user.email "steve@pushbutton.com"
